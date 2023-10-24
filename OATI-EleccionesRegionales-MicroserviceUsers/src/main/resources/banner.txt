@@ -1,0 +1,10 @@
+
+   OOOOOOOO     AAAAA     TTTTTTTT  IIIIIIIII
+  O        O   A     A       T          I  
+  O        O   AAAAAAA       T          I  
+  O        O   A     A       T          I  
+   OOOOOOOO    A     A       T      IIIIIIIII
+
+
+${application.title} ${application.version}
+Powered by Spring Boot ${spring-boot.version}
