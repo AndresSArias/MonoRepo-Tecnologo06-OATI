@@ -54,3 +54,10 @@ Estando ya ubicado en el microservicio después de clonar el repositorio:
 ## Tests
 
 - Click derecho en la carpeta de test y seleccione Run.
+
+## Funcionalidad
+![img.png](ResourseReadme/Run.png)
+![img.png](ResourseReadme/SwaggerUI.png)
+![img.png](ResourseReadme/Login.png)
+![img.png](ResourseReadme/CrearCandidato.png)
+![img.png](ResourseReadme/ModeloRelacional.png)
