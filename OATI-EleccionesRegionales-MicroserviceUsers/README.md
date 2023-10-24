@@ -37,7 +37,7 @@ Estando ya ubicado en el microservicio después de clonar el repositorio:
    # src/main/resources/application-dev.yml
    spring:
       datasource:
-          url: jdbc:mysql://localhost/dbusers
+          url: jdbc:mysql://localhost/elecciones_dbusers
           username: root
           password: <your-password>
    ```
