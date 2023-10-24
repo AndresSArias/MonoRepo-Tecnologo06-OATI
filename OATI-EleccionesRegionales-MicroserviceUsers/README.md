@@ -1,12 +1,12 @@
 <br />
 <div align="center">
-<h3 align="center">PRAGMA POWER-UP</h3>
+<h3 align="center">ELECCIONES REGIONALES</h3>
   <p align="center">
-    In this challenge I am going to design the backend of a system that centralizes the services and orders of a restaurant chain that has different branches in the city. This is Microservice of Users, this services resolve the HU1, HU5, HU6 and HU8 now you need to authenticate with email and it is complement for resolve HU2, HU3, HU4, HU7 and HU9 in the Plazoleta microservice.
-  </p>
+      En este microservicio de usuarios se guarda, modifica y elimina la información de toda usuario que interactua con el sistema de elecciones regionales además de su rol en las mismas, el Admin, Candidato y Ciudadano. Además es el microservicio para generar la autentificación en todo el sistema mediante tokens y está contruido bajo la arquitectura de Puertos y Adaptadores (Hexagonal).
+   </p>
 </div>
 
-### Built With
+### Construido con
 
 * ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 * ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
@@ -17,27 +17,22 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these steps.
+Para correr de forma local este proyecto verifique la siguiete información y siga los pasos.
 
-### Prerequisites
+### Prerequisitos
 
 * JDK 17 [https://jdk.java.net/java-se-ri/17](https://jdk.java.net/java-se-ri/17)
 * Gradle [https://gradle.org/install/](https://gradle.org/install/)
 * MySQL [https://dev.mysql.com/downloads/installer/](https://dev.mysql.com/downloads/installer/)
 
-### Recommended Tools
+### Herramientas recomendadas
 * IntelliJ Community [https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/)
 * Postman [https://www.postman.com/downloads/](https://www.postman.com/downloads/)
 
-### Installation
-
-1. Clone the repository
-2. Change directory
-   ```sh
-   cd PowerUp-Reto-microserviceUsers
-   ```
-3. Execute the script of "scriptCreateDB" in resource (src/main/resources/scriptCreateDB.sql).
-4. Update the database connection settings
+### Instalación
+Estando ya ubicado en el microservicio después de clonar el repositorio:
+1. Ejecute el script de "scriptCreateDB" en la ubicación (src/main/resources/scriptCreateDB.sql).
+4. Actualice la información de la configuración de la conexión de la base de datos
    ```yml
    # src/main/resources/application-dev.yml
    spring:
@@ -46,16 +41,16 @@ To get a local copy up and running follow these steps.
           username: root
           password: <your-password>
    ```
-5. After the tables are created execute src/main/resources/scriptInitialDBFill.sql content to populate the database
-6. Open Swagger UI and search the /auth/login endpoint and login with email: ADMIN@ADMIN.COM, password: 1234
+5. Después de que las tablas estén creadas ejecute src/main/resources/scriptInitialDBFill.sql , contiene la un llenado inicial de la base de datos.
+6. Abra Swagger UI y busque el endpoint /auth/login para loggearse con la siguientes credenciales; numberDocument: 9999999999, password: 1234 , entrará al usuario Admin.
 
 <!-- USAGE -->
-## Usage
+## Utilización
 
-1. Right-click the class PowerUpApplication and choose Run
-2. Open [http://localhost:8090/swagger-ui/index.html](http://localhost:8090/swagger-ui/index.html) in your web browser
+1. Click derecho en la clase OATIApplication y seleccione "Run".
+2. Abra [http://localhost:8090/swagger-ui/index.html](http://localhost:8090/swagger-ui/index.html) en su navegador para interactuar con el microservicio de Usuarios.
 
 <!-- ROADMAP -->
 ## Tests
 
-- Right-click the test folder and choose Run tests with coverage
+- Click derecho en la carpeta de test y seleccione Run.
