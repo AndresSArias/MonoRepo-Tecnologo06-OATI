@@ -33,23 +33,23 @@ public class JwtProvider {
     private int expiration;
 
     public String[] generateToken(Authentication authentication) {
+
         PrincipalUser usuarioPrincipal = (PrincipalUser) authentication.getPrincipal();
-        String[] response = new String[5];
+        String[] response = new String[4];
         List<String> role = usuarioPrincipal.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .toList();
         response[0] = Jwts.builder()
                 .setSubject(usuarioPrincipal.getUsername())
-                .claim(Constants.IDUSER, usuarioPrincipal.getId()+"")
+                .claim(Constants.IDUSER, usuarioPrincipal.getUsername()+"")
                 .claim(Constants.ROLES, role)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + expiration * 180))
                 .signWith(SignatureAlgorithm.HS256, secret.getBytes())
                 .compact();
-        response[1] = role.get(0);
+        response[1] = usuarioPrincipal.getUsername()+"";
         response[2] = usuarioPrincipal.getName();
-        response[3] = usuarioPrincipal.getId()+"";
-        response[4] = usuarioPrincipal.getIdMultiplex()+"";
+        response[3] = role.get(0);
         return response;
     }
 

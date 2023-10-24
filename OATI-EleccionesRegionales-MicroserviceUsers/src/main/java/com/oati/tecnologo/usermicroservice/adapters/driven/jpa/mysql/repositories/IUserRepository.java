@@ -12,6 +12,5 @@ public interface IUserRepository extends JpaRepository<UserEntity, Long> {
     List<UserEntity> findAllById(Long idPerson);
     Optional<UserEntity> findByNumberDocument(String numberDocument);
 
-    Optional<UserEntity> findByEmail(String email);
 }
 

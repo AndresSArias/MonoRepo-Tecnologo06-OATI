@@ -11,23 +11,24 @@ import java.util.List;
 public class PrincipalUser implements UserDetails {
     private String name;
     private String numberDocument;
-    private  long id;
-
+    private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public PrincipalUser(String name, String numberDocument,
+    public PrincipalUser(String name, String numberDocument, String password,
                          Collection<? extends GrantedAuthority> authorities) {
         this.name = name;
         this.numberDocument = numberDocument;
+        this.password = password;
         this.authorities = authorities;
-        this.id = id;
+
     }
 
     public static PrincipalUser build(UserEntity usuario, List<RoleEntity> roles) {
             List<SimpleGrantedAuthority> authorities = roles.stream()
                     .map(rol -> new SimpleGrantedAuthority(rol.getName())).toList();
-        return new PrincipalUser(usuario.getName(), usuario.getNumberDocument(),authorities);
+        return new PrincipalUser(usuario.getName(), usuario.getNumberDocument(),
+                usuario.getPassword(), authorities);
     }
 
     @Override
@@ -37,7 +38,7 @@ public class PrincipalUser implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
@@ -67,10 +68,6 @@ public class PrincipalUser implements UserDetails {
 
     public String getName() {
         return name;
-    }
-
-    public long getId() {
-        return id;
     }
 
 }

@@ -18,18 +18,8 @@ import java.time.format.DateTimeParseException;
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface IUserRequestMapper {
 
-    @Mapping(source = "dateBirth", target = "dateBirth", qualifiedByName = "toDate")
+
     User toModel (UserRequestDto userRequestDto);
-
-
-    @Named("toDate")
-    default LocalDate toDate(String dateOfBirth) throws ParseException {
-        try {
-            return LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        } catch (DateTimeParseException e) {
-            throw new NoFormatDataException();
-        }
-    }
 
 
 }

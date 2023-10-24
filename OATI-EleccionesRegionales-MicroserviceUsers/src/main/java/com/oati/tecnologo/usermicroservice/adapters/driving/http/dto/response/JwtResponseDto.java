@@ -9,8 +9,8 @@ public class JwtResponseDto {
 
     private String token;
     private String id;
-    private String idMultiplex;
-    private String rol;
     private String name;
+    private String rol;
+
 
 }

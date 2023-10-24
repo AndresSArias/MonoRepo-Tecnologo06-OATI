@@ -24,15 +24,8 @@ public class UserHandlerImpl implements IUserHandler {
 
     private final JwtProvider jwtProvider;
 
-    @Override
-    public void updateRating(QualificationRequestDto qualificationRequestDto) {
-        userServicePort.updateRating(qualificationRequestDto);
-    }
 
-    @Override
-    public List<AdminResponseDto> getAllAdmins() {
-        return userServicePort.getAllAdmins();
-    }
+
 
     /*
         @Override
@@ -57,26 +50,6 @@ public class UserHandlerImpl implements IUserHandler {
         clienteCreateResponseDto.setMessage("CorrectData:Create cliente successful");
 
         return clienteCreateResponseDto;
-    }
-
-    @Override
-    public MessageCodeResponseDto isExist(String numDocument) {
-        return userServicePort.isExist(numDocument);
-    }
-
-    @Override
-    public ClienteCreateResponseDto saveAdmin(UserAdminRequestDto userAdminRequestDto) {
-        return userServicePort.saveAdmin(userAdminRequestDto);
-    }
-
-    @Override
-    public void updatePoints(String idClient, String points) {
-        userServicePort.updatePoints(Long.parseLong(idClient),Integer.parseInt(points));
-    }
-
-    @Override
-    public PointsClientResponseDto getPoints(String numberDocument) {
-        return userServicePort.getPoints(numberDocument);
     }
 
 }

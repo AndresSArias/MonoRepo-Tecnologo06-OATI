@@ -24,6 +24,8 @@ public class UserEntity {
     private String numberDocument;
     @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
+    private String password;
     @ManyToOne
     @JoinColumn(name = "id_role", nullable = false)
     private RoleEntity roleEntity;
