@@ -36,7 +36,7 @@ public class BeanConfiguration {
     }
     @Bean
     public IUserServicePort userServicePort() {
-        return new UserUseCase(userPersistencePort(), rolePersistencePort(), userEntityMapper);
+        return new UserUseCase(userPersistencePort(), rolePersistencePort(), userEntityMapper,passwordEncoder);
     }
     @Bean
     public IUserPersistencePort userPersistencePort() {

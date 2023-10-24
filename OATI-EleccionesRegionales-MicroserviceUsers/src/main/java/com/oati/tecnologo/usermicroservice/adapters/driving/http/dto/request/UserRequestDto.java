@@ -14,5 +14,7 @@ public class UserRequestDto {
     private String numberDocument;
     @Pattern(regexp = "^[A-Za-zÁ-Úá-ú ]+$", message = "The name must have only letters")
     private String name;
+    @NotBlank
+    private String password;
 
 }

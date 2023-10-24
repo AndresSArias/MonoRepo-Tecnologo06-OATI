@@ -12,7 +12,7 @@ public interface IUserHandler {
 
     AuthUserResponse getUsuario (String numberDocument);
 
-    ClienteCreateResponseDto saveClient (UserRequestDto userResponseDto);
+    void saveUserCandidate (UserRequestDto userResponseDto);
 
 
 }

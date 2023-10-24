@@ -44,12 +44,9 @@ public class UserHandlerImpl implements IUserHandler {
     }
 
     @Override
-    public ClienteCreateResponseDto saveClient(UserRequestDto userRequestDto) {
-
-        ClienteCreateResponseDto clienteCreateResponseDto = userResponseMapper.toClientCreateDto(userServicePort.saveClient(userRequestMapper.toModel(userRequestDto)));
-        clienteCreateResponseDto.setMessage("CorrectData:Create cliente successful");
-
-        return clienteCreateResponseDto;
+    public void saveUserCandidate(UserRequestDto userResponseDto) {
+        userServicePort.saveUserCandidate(userRequestMapper.toModel(userResponseDto));
     }
+
 
 }

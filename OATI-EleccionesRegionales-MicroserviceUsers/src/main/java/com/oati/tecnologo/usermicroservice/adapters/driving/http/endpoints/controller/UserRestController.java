@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,14 +30,21 @@ public class UserRestController {
     private final IUserHandler userHandler;
 
 
-    @Operation(summary = "Add a new client")
-    @PostMapping("/client/new")
-    public ResponseEntity<ClienteCreateResponseDto> saveClient(@Valid @RequestBody UserRequestDto userRequestDto) {
-
-        return ResponseEntity.ok(userHandler.saveClient(userRequestDto));
+    @Operation(summary = "Add a new candidate",
+            responses = {
+                    @ApiResponse(responseCode = "201", description = "Candidate created",
+                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Map"))),
+                    @ApiResponse(responseCode = "409", description = "Candidate already exists",
+                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error"))),
+                    @ApiResponse(responseCode = "403", description = "Role not allowed for user creation",
+                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error")))})
+    @PostMapping("/createUserCandidate")
+    public ResponseEntity<Map<String, String>> saveUserCandidate(@Valid @RequestBody UserRequestDto userRequestDto) {
+        userHandler.saveUserCandidate(userRequestDto);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(Collections.singletonMap(Constants.RESPONSE_MESSAGE_KEY, Constants.USER_CANDIDATE_CREATED_MESSAGE));
     }
-
-    @Operation(summary = "Get a user for conect MicroserviceMultiplex",
+    @Operation(summary = "Get a user for conect MicroserviceElecciones",
             responses = {
                     @ApiResponse(responseCode = "200", description = "User returned",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = AuthUserResponse.class))),
